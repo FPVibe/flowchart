@@ -20,6 +20,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Run unit tests
+        run: npm test
+
       - name: Start server and run smoke tests
         run: |
           # Start server in background
