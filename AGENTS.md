@@ -16,7 +16,16 @@ npm run dev        # Run with watch mode (auto-restart on changes)
 
 ### Testing
 
-No unit test framework. Tests are smoke tests via curl against a running server (see `.github/workflows/ci.yml`).
+Unit tests use `node:test` through Hono's `app.request()` — no network, no
+server. `tests/helpers.ts` sets `DB_PATH=':memory:'` and dynamically imports
+`src/app.ts` so the env var lands before the db module loads; each test file
+gets a fresh, seeded, in-memory database.
+
+```bash
+npm test
+```
+
+Smoke tests still run against a real server in CI (see `.github/workflows/ci.yml`).
 
 To run smoke tests manually:
 ```bash
