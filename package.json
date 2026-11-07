@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node --import tsx src/server.ts",
     "dev": "node --import tsx --watch src/server.ts",
-    "test": "node --import tsx --test 'tests/**/*.test.ts'"
+    "test": "node --import tsx --test tests/*.test.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.9",
